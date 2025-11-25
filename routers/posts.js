@@ -2,10 +2,11 @@ const express = require("express");
 const router = express.Router();
 const posts = require("../data/posts");
 
-// INDEX 
+// INDEX (bonus)
 router.get("/", (req, res) => {
-    res.send("Lista dei post");
+    res.json(posts);
 });
+
 
 // SHOW 
 router.get("/:id", (req, res) => {
