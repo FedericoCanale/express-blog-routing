@@ -8,9 +8,18 @@ router.get("/", (req, res) => {
 });
 
 
-// SHOW 
+// SHOW (bonus)
 router.get("/:id", (req, res) => {
-    res.send(`Dettaglio del post ${req.params.id}`);
+    const id = Number(req.params.id);          // converto l'id in numero
+    const post = posts.find((p) => p.id === id); // cerco il post
+
+    if (!post) {
+        // se non lo trovo, mando un messaggio semplice
+        res.json({ message: "Post non trovato" });
+    } else {
+        // altrimenti mando il post
+        res.json(post);
+    }
 });
 
 // CREATE 
