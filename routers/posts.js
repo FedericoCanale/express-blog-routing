@@ -15,10 +15,10 @@ router.get("/:id", (req, res) => {
 
     if (!post) {
         // se non lo trovo, mando un messaggio semplice
-        res.json({ message: "Post non trovato" });
+        return res.status(404).json({ message: "Post non trovato" });
     } else {
         // altrimenti mando il post
-        res.json(post);
+        return res.json(post);
     }
 });
 
